@@ -1,0 +1,89 @@
+* {
+  font-family: inter;
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+}
+
+.standard {
+  font-size: 1rem;
+}
+
+.small {
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+}
+
+@font-face {
+  font-family: inter;
+  src: url(fonts/inter.ttf);
+}
+
+@font-face {
+  font-family: cherry;
+  src: url(fonts/cherrybomb.ttf);
+}
+
+#background {
+  background-color: #fff0f0;
+}
+
+.outline {
+  border-color: #aaaaaa !important;
+}
+
+#screen {
+  background-color: #f4c4b3;
+}
+
+#cross {
+  font-size: 1.5rem;
+}
+
+#lockup {
+  height: 80%;
+
+  >div {
+    height: 280px;
+    width: 280px;
+  }
+}
+
+.logo {
+  font-family: cherry;
+  font-size: 2.5rem;
+  letter-spacing: 6px;
+}
+
+.button {
+  width: auto;
+  background-color: #ffffff;
+  color: #000000;
+  width: 30%;
+}
+
+.button:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.button-2 {
+  width: auto;
+  background-color: #000000;
+  color: #ffffff;
+  width: 30%;
+}
+
+.button-2:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.field {
+  border: none;
+  outline: none;
+  width: 70%;
+}
+
+#notes {
+  border-radius: 10px 10px 0 0;
+}
