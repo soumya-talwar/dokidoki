@@ -14,8 +14,9 @@
 }
 
 @font-face {
-  font-family: inter;
-  src: url(fonts/inter.ttf);
+  font-family: "inter";
+  src: url(fonts/inter.ttf) format("truetype-variations");
+  font-weight: 1 999;
 }
 
 @font-face {
@@ -25,6 +26,10 @@
 
 #background {
   background-color: #fff0f0;
+}
+
+#file {
+  font-variation-settings: "wght" 520;
 }
 
 .outline {
@@ -78,6 +83,10 @@
   color: #000000;
 }
 
+.button-3 {
+  width: auto;
+}
+
 .field {
   border: none;
   outline: none;
@@ -86,4 +95,57 @@
 
 #notes {
   border-radius: 10px 10px 0 0;
+}
+
+#route {
+  overflow-x: scroll;
+  height: 80%;
+}
+
+#wrapper {
+  height: 100%;
+  width: 300%;
+  overflow-x: scroll;
+}
+
+.story {
+  overflow-x: auto;
+  height: 100%;
+  width: 33%;
+  border-radius: 15px;
+}
+
+.icon {
+  background-color: #c92f18;
+  color: #ffffff;
+  width: 2.5rem;
+  height: 2.5rem;
+
+  span {
+    font-size: 1.1rem;
+  }
+}
+
+.name {
+  font-size: 1.2rem;
+}
+
+.image {
+  width: 100%;
+}
+
+.image img {
+  width: 100%;
+  height: auto;
+}
+
+.prompt {
+  letter-spacing: 1;
+}
+
+.answer {
+  letter-spacing: 2;
+  font-variation-settings: "wght" 600;
+  font-size: 1.8rem;
+  line-height: 2.2rem;
 }

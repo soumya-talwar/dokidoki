@@ -21,12 +21,12 @@
       <div class="d-flex w-100 border outline border-bottom-0 align-items-center py-1 bg-white">
         <span class="flex-shrink-1 ps-3" id="cross">x</span>
         <div class="flex-grow-1 text-center">
-          <span class="fw-bold standard">doki_doki.exe</span>
+          <span class="standard" id="file">doki_doki.exe</span>
         </div>
       </div>
       <div class="w-100 h-100 border outline p-3">
         <div class="h-100 w-100" id="screen">
-          <div class="h-100 w-100 d-flex flex-column" id="title">
+          <!-- <div class="h-100 w-100 d-flex flex-column" id="title">
             <div class="d-flex align-items-center justify-content-center" id="lockup">
               <div class="d-flex flex-column rounded-circle bg-white justify-content-center align-items-center"
                 id="lockup">
@@ -38,15 +38,65 @@
               <button class="button btn rounded-pill py-2 align-self-center" id="start">start</button>
               <button class="button btn rounded-pill py-2 align-self-center" id="info">info</button>
             </div>
-          </div>
-          <div class="d-none hidden h-100 w-100 d-flex flex-column justify-content-between" id="details">
-            <p class="logo mt-4 text-center">DOKI DOKI</p>
-            <div class="d-flex flex-column justify-content-center align-items-center gap-3" id="name">
+          </div> -->
+          <!-- <div class="d-none hidden h-100 w-100 d-flex flex-column justify-content-between" id="details"> -->
+          <div class="d-flex h-100 w-100 flex-column justify-content-between" id="details">
+            <p class="logo mt-3 text-center mb-1">DOKI DOKI</p>
+            <!-- <div class="d-flex flex-column justify-content-center align-items-center gap-3" id="name">
               <input type="text" placeholder="your name" class="field standard rounded-pill py-3 text-center mb-2"
                 id="user">
               <button class="button-2 btn rounded-pill py-2" id="submit">submit</button>
+            </div> -->
+            <!-- <div class="d-none hidden flex-grow-1" id="route"> -->
+            <div class="flex-grow-1" id="route">
+              <div class="d-flex gap-3 px-5 py-3" id="wrapper">
+                <div class="story bg-white d-flex flex-column p-4 gap-3">
+                  <div class="d-flex gap-3 align-items-center">
+                    <div class="icon rounded-circle d-flex justify-content-center align-items-center"><span
+                        class="m-0 p-0">S</span></div>
+                    <div class="name">soumya</div>
+                  </div>
+                  <div class="image">
+                    <img src="images/soumya 1.jpg">
+                  </div>
+                  <div>
+                    <p class="prompt m-0 pb-1">I want someone who</p>
+                    <p class="answer">is calm, easy-going and disciplined</p>
+                    <button class="button-2 btn rounded-pill py-2" id="chat">chat</button>
+                  </div>
+                </div>
+                <div class="story bg-white d-flex flex-column p-4 gap-3">
+                  <div class="d-flex gap-3 align-items-center">
+                    <div class="icon rounded-circle d-flex justify-content-center align-items-center"><span
+                        class="m-0 p-0">S</span></div>
+                    <div class="name">simmer</div>
+                  </div>
+                  <div class="image">
+                    <img src="images/simmer.jpg">
+                  </div>
+                  <div>
+                    <p class="prompt m-0 pb-1">I geek on</p>
+                    <p class="answer">romance novels, anime & java</p>
+                    <p>coming soon</p>
+                  </div>
+                </div>
+                <div class="story bg-white d-flex flex-column p-4 gap-3">
+                  <div class="d-flex gap-3 align-items-center">
+                    <div class="icon rounded-circle d-flex justify-content-center align-items-center"><span
+                        class="m-0 p-0">S</span></div>
+                    <div class="name">smriti</div>
+                  </div>
+                  <div class="image">
+                    <img src="images/smriti.jpg">
+                  </div>
+                  <div>
+                    <p class="prompt m-0 pb-1">You shouldn't go out with me</p>
+                    <p class="answer">if you can't beat me in a beyblade battle</p>
+                    <p>coming soon</p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="d-none hidden" id="route"></div>
             <div class="mx-3 px-5 py-4 bg-white" id="notes">
               <p class="small my-0">* your name will be used to refer to you in
                 conversations</p>
