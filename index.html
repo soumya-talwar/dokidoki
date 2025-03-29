@@ -6,19 +6,16 @@
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
 			rel="stylesheet"
 			integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
-			crossorigin="anonymous"
-		/>
+			crossorigin="anonymous" />
 		<script
 			src="https://code.jquery.com/jquery-3.6.0.min.js"
 			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-			crossorigin="anonymous"
-		></script>
+			crossorigin="anonymous"></script>
 		<script
 			src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"
 			integrity="sha512-N4kV7GkNv7QR7RX9YF/olywyIgIwNvfEe2nZtfyj73HdjCUkAfOBDbcuJ/cTaN04JKRnw1YG1wnUyNKMsNgg3g=="
 			crossorigin="anonymous"
-			referrerpolicy="no-referrer"
-		></script>
+			referrerpolicy="no-referrer"></script>
 		<script type="text/javascript" src="sketch.js"></script>
 		<link rel="stylesheet" type="text/css" href="style.css" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -27,59 +24,44 @@
 	<body>
 		<div id="background">
 			<div id="device">
-				<div
-					class="d-flex w-100 border outline border-bottom-0 align-items-center py-1 bg-white"
-				>
-					<span class="flex-shrink-1 ps-3" id="cross">x</span>
-					<div class="flex-grow-1 text-center">
-						<span class="standard" id="file">doki_doki.exe</span>
-					</div>
+				<div id="bar">
+					<span id="cross">x</span>
+					<div id="file"><span>doki_doki.exe</span></div>
 				</div>
-				<div class="w-100 h-100 border outline p-3">
-					<div class="h-100 w-100" id="screen">
-						<div class="h-100 w-100 d-flex flex-column" id="title">
-							<div
-								class="d-flex align-items-center justify-content-center"
-								id="lockup"
-							>
-								<div
-									class="d-flex flex-column rounded-circle bg-white justify-content-center align-items-center"
-									id="lockup"
-								>
+				<div id="window">
+					<div>
+						<div id="page-title">
+							<div id="lockup">
+								<div>
 									<p class="logo">DOKI DOKI</p>
-									<p class="m-0 standard">go on a date with me</p>
+									<p>go on a date with me</p>
 								</div>
 							</div>
 							<div class="d-flex flex-column gap-3">
 								<button
 									class="button btn rounded-pill py-2 align-self-center"
-									id="start"
-								>
+									id="start">
 									start
 								</button>
 								<button
 									class="button btn rounded-pill py-2 align-self-center"
-									id="info"
-								>
+									id="info">
 									info
 								</button>
 							</div>
 						</div>
 						<div
 							class="d-none h-100 w-100 d-flex flex-column justify-content-between"
-							id="details"
-						>
+							id="details">
 							<p class="logo mt-3 text-center mb-1">DOKI DOKI</p>
 							<div
 								class="d-flex flex-column justify-content-center align-items-center gap-3"
-								id="name"
-							>
+								id="name">
 								<input
 									type="text"
 									placeholder="your name"
 									class="field standard rounded-pill py-3 text-center mb-2"
-									id="user"
-								/>
+									id="user" />
 								<button class="button-2 btn rounded-pill py-2" id="submit">
 									submit
 								</button>
@@ -89,8 +71,7 @@
 									<div class="story bg-white d-flex flex-column p-4 gap-3">
 										<div class="d-flex gap-3 align-items-center">
 											<div
-												class="icon rounded-circle d-flex justify-content-center align-items-center"
-											>
+												class="icon rounded-circle d-flex justify-content-center align-items-center">
 												<span class="m-0 p-0">S</span>
 											</div>
 											<div class="name">soumya</div>
@@ -109,8 +90,7 @@
 									<div class="story bg-white d-flex flex-column p-4 gap-3">
 										<div class="d-flex gap-3 align-items-center">
 											<div
-												class="icon rounded-circle d-flex justify-content-center align-items-center"
-											>
+												class="icon rounded-circle d-flex justify-content-center align-items-center">
 												<span class="m-0 p-0">S</span>
 											</div>
 											<div class="name">simmer</div>
@@ -127,8 +107,7 @@
 									<div class="story bg-white d-flex flex-column p-4 gap-3">
 										<div class="d-flex gap-3 align-items-center">
 											<div
-												class="icon rounded-circle d-flex justify-content-center align-items-center"
-											>
+												class="icon rounded-circle d-flex justify-content-center align-items-center">
 												<span class="m-0 p-0">S</span>
 											</div>
 											<div class="name">smriti</div>
