@@ -16,4 +16,11 @@ $("document").ready(() => {
       $("#route").fadeIn(300);
     });
   });
+
+  $("#talk").click(() => {
+    $("#details").fadeOut(300, () => {
+      $("#details, #chat").toggleClass("d-none");
+      $("#chat").fadeIn(300);
+    });
+  });
 });
