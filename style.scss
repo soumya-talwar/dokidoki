@@ -1,193 +1,197 @@
 * {
-  font-family: inter;
-  font-size: 0.8rem;
-  letter-spacing: 3px;
+	font-family: inter;
+	font-size: 0.8rem;
+	letter-spacing: 3px;
 }
 
 .standard {
-  font-size: 1rem;
+	font-size: 1rem;
 }
 
 .small {
-  font-size: 0.8rem;
-  letter-spacing: 2px;
+	font-size: 0.8rem;
+	letter-spacing: 2px;
 }
 
 @font-face {
-  font-family: "inter";
-  src: url(fonts/inter.ttf) format("truetype-variations");
-  font-weight: 1 999;
+	font-family: "inter";
+	src: url(fonts/inter.ttf) format("truetype-variations");
+	font-weight: 1 999;
 }
 
 @font-face {
-  font-family: cherry;
-  src: url(fonts/cherrybomb.ttf);
+	font-family: cherry;
+	src: url(fonts/cherrybomb.ttf);
 }
 
 #background {
-  background-color: #fff0f0;
-  display: flex;
-  height: 100%;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  padding: 2%;
+	background-color: #fff0f0;
+	display: flex;
+	height: 100%;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	padding: 2%;
 }
 
 #device {
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  background-color: #ffffff;
-  width: 25%;
+	display: flex;
+	height: 100%;
+	flex-direction: column;
+	background-color: #ffffff;
+	width: 25%;
 }
 
 #file {
-  font-variation-settings: "wght" 520;
+	font-variation-settings: "wght" 520;
 }
 
 .outline {
-  border-color: #aaaaaa !important;
+	border-color: #aaaaaa !important;
 }
 
 #screen {
-  background-color: #f4c4b3;
+	background-color: #f4c4b3;
 }
 
 #cross {
-  font-size: 1.5rem;
+	font-size: 1.5rem;
 }
 
 #lockup {
-  height: 80%;
+	height: 80%;
 
-  >div {
-    height: 280px;
-    width: 280px;
-  }
+	> div {
+		height: 280px;
+		width: 280px;
+	}
 }
 
 .logo {
-  font-family: cherry;
-  font-size: 2.5rem;
-  letter-spacing: 6px;
+	font-family: cherry;
+	font-size: 2.5rem;
+	letter-spacing: 6px;
 }
 
 .button {
-  width: auto;
-  background-color: #ffffff;
-  color: #000000;
-  width: 30%;
+	width: auto;
+	background-color: #ffffff;
+	color: #000000;
+	width: 30%;
 }
 
 .button:hover {
-  background-color: #000000;
-  color: #ffffff;
+	background-color: #000000;
+	color: #ffffff;
 }
 
 .button-2 {
-  width: auto;
-  background-color: #000000;
-  color: #ffffff;
-  width: 30%;
+	width: auto;
+	background-color: #000000;
+	color: #ffffff;
+	width: 30%;
 }
 
 .button-2:hover {
-  background-color: #ffffff;
-  color: #000000;
+	background-color: #ffffff;
+	color: #000000;
 }
 
 .button-3 {
-  width: auto;
+	width: auto;
 }
 
 .field {
-  border: none;
-  outline: none;
-  width: 70%;
+	border: none;
+	outline: none;
+	width: 70%;
 }
 
 #notes {
-  border-radius: 10px 10px 0 0;
+	border-radius: 10px 10px 0 0;
 }
 
 #route {
-  overflow-x: scroll;
-  height: 80%;
+	overflow-x: scroll;
+	height: 80%;
 }
 
 #wrapper {
-  height: 100%;
-  width: 300%;
-  overflow-x: scroll;
+	height: 100%;
+	width: 300%;
+	overflow-x: scroll;
 }
 
 .story {
-  overflow-x: auto;
-  height: 100%;
-  width: 33%;
-  border-radius: 15px;
+	overflow-x: auto;
+	height: 100%;
+	width: 33%;
+	border-radius: 15px;
 }
 
 .icon {
-  background-color: #c92f18;
-  color: #ffffff;
-  width: 2.5rem;
-  height: 2.5rem;
+	background-color: #c92f18;
+	color: #ffffff;
+	width: 2.5rem;
+	height: 2.5rem;
 
-  span {
-    font-size: 1.1rem;
-  }
+	span {
+		font-size: 1.1rem;
+	}
 }
 
 .name {
-  font-size: 1.2rem;
-  letter-spacing: 2;
+	font-size: 1.2rem;
+	letter-spacing: 2;
 }
 
 .image {
-  width: 100%;
+	width: 100%;
 }
 
 .image img {
-  width: 100%;
-  height: auto;
+	width: 100%;
+	height: auto;
 }
 
 .prompt {
-  letter-spacing: 1;
+	letter-spacing: 1;
 }
 
 .answer {
-  letter-spacing: 2;
-  font-variation-settings: "wght" 600;
-  font-size: 1.8rem;
-  line-height: 2.2rem;
+	letter-spacing: 2;
+	font-variation-settings: "wght" 600;
+	font-size: 1.8rem;
+	line-height: 2.2rem;
 }
 
 #chat {
-  background-image: url(images/soumya\ 2.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  align-items: flex-start
+	background-image: url(images/soumya\ 2.jpg);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	align-items: flex-start;
 }
 
-.message, .response {
-  background-color: #ffffff;
-  padding: 0.5rem 1rem;
-  border-radius: 10px;
-  max-width: 80%;
-  letter-spacing: 2px;
+.message,
+.response {
+	background-color: #ffffff;
+	padding: 0.5rem 1rem;
+	border-radius: 10px;
+	max-width: 80%;
+	letter-spacing: 2px;
 }
 
 .response {
-  background-color: #000000;
-  color: #ffffff;
+	background-color: #000000;
+	color: #ffffff;
 }
 
-@media only screen and (max-width:600px) {
- #device {
-  width: 100%;
- }
+@media only screen and (max-width: 600px) {
+	#background {
+		padding: 0;
+	}
+	#device {
+		width: 100%;
+	}
 }
