@@ -26,6 +26,20 @@
 
 #background {
   background-color: #fff0f0;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 2%;
+}
+
+#device {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  background-color: #ffffff;
+  width: 25%;
 }
 
 #file {
@@ -170,4 +184,10 @@
 .response {
   background-color: #000000;
   color: #ffffff;
+}
+
+@media only screen and (max-width:600px) {
+ #device {
+  width: 100%;
+ }
 }
