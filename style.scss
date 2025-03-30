@@ -87,7 +87,7 @@ $color-gray: #aaaaaa;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 3rem 1rem 0 1rem;
+	padding: 1.5rem 1rem 0 1rem;
 	gap: 1rem;
 }
 
@@ -108,6 +108,9 @@ $color-gray: #aaaaaa;
 .button {
 	font-size: $font-standard;
 	padding: 0.5rem 1rem;
+	background-color: white;
+	color: black;
+	border: 2px solid black;
 	border-radius: 5px;
 	letter-spacing: 1px;
 }
