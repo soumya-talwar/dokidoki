@@ -1,7 +1,9 @@
 var user;
 
 $("document").ready(() => {
+	var info = new Audio("audio/info.m4a");
 	$("#details").hide();
+	$("#info").click(() => info.play());
 	$("#start").click(() => {
 		$("#page-title").fadeOut(300, () => {
 			$("#page-title, #page-details").toggleClass("d-none");
