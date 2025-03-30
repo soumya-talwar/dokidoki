@@ -4,12 +4,17 @@ $("document").ready(() => {
 	var music = new Audio("audio/bgm.mp3");
 	$("#play").click(() => {
 		music.play();
+		music.loop = true;
 		$("#permission").addClass("d-none");
 		$("#background").css("opacity", "100%");
 	});
 	var info = new Audio("audio/info.m4a");
 	$("#details").hide();
-	$("#info").click(() => info.play());
+	$("#info").click(() => {
+		music.pause();
+		info.play();
+		info.addEventListener("ended", () => music.play());
+	});
 	// $("#start").click(() => {
 	// 	$("#page-title").fadeOut(300, () => {
 	// 		$("#page-title, #page-details").toggleClass("d-none");
