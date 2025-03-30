@@ -10,23 +10,27 @@ $("document").ready(() => {
 	});
 	var info = new Audio("audio/info.m4a");
 	$("#info").click(() => {
-		music.pause();
-		$("#info-dialog").removeClass("d-none");
-		info.play();
-		info.addEventListener("ended", () => music.play());
+		setTimeout(() => {
+			music.pause();
+			$("#info-dialog").removeClass("d-none");
+			info.play();
+			info.addEventListener("ended", () => music.play());
+		}, 500);
 	});
 	$("#back").click(() => {
-		$("#info-dialog").addClass("d-none");
-		info.pause();
-		info.currentTime = 0;
-		music.play();
+		setTimeout(() => {
+			$("#info-dialog").addClass("d-none");
+			info.pause();
+			info.currentTime = 0;
+			music.play();
+		}, 100);
 	});
-	// $("#start").click(() => {
-	// 	$("#page-title").fadeOut(300, () => {
-	// 		$("#page-title, #page-details").toggleClass("d-none");
-	// 		$("#page-details").fadeIn(300);
-	// 	});
-	// });
+	$("#start").click(() => {
+		$("#page-title").fadeOut(300, () => {
+			$("#page-title, #page-name").toggleClass("d-none");
+			$("#page-name").fadeIn(300);
+		});
+	});
 
 	// $("#submit").click(() => {
 	// 	user = $("#user").val();
