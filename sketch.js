@@ -4,8 +4,8 @@ $("document").ready(() => {
 	$("#details").hide();
 	$("#start").click(() => {
 		$("#page-title").fadeOut(300, () => {
-			$("#page-title, #details").toggleClass("d-none");
-			$("#details").fadeIn(300);
+			$("#page-title, #page-details").toggleClass("d-none");
+			$("#page-details").fadeIn(300);
 		});
 	});
 
@@ -18,8 +18,8 @@ $("document").ready(() => {
 	});
 
 	$("#talk").click(() => {
-		$("#details").fadeOut(300, () => {
-			$("#details, #chat").toggleClass("d-none");
+		$("#page-details").fadeOut(300, () => {
+			$("#page-details, #chat").toggleClass("d-none");
 			$("#chat").fadeIn(300);
 		});
 	});

@@ -4,11 +4,11 @@
   font-weight: 1 999;
 }
 @font-face {
-  font-family: cherry;
-  src: url(fonts/cherrybomb.ttf);
+  font-family: retro;
+  src: url(fonts/pressstart.ttf);
 }
 * {
-  font-family: inter;
+  font-family: retro;
   font-size: 0.8rem;
   letter-spacing: 3px;
 }
@@ -40,6 +40,7 @@
   padding: 0.25rem 0;
 }
 #bar #cross {
+  font-family: inter;
   flex-shrink: 1;
   padding-left: 1rem;
   font-size: 1.5rem;
@@ -49,6 +50,7 @@
   text-align: center;
 }
 #bar #file span {
+  font-family: inter;
   font-variation-settings: "wght" 520;
   font-size: 1rem;
 }
@@ -60,7 +62,7 @@
   padding: 3%;
 }
 #window > div {
-  background-image: url(images/backdrop.jpg);
+  background-image: url(images/title.gif);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -72,60 +74,57 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  padding: 3rem 1rem 0 1rem;
+  gap: 1rem;
 }
 
-#lockup {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 80%;
-}
-#lockup > div {
-  height: 230px;
-  width: 230px;
-  display: flex;
-  flex-direction: column;
-  border-radius: 100%;
-  background-color: white;
-  justify-content: center;
-  align-items: center;
-}
-#lockup .logo {
-  font-family: cherry;
+#logo {
+  font-family: retro;
   font-size: 2rem;
-  letter-spacing: 6px;
-}
-#lockup .logo + p {
-  font-size: 1rem;
+  letter-spacing: 4px;
   margin: 0;
+  color: white;
+}
+#logo + p {
+  color: white;
+  letter-spacing: 1px;
+  font-size: 1rem;
 }
 
 .button {
-  width: auto;
-  background-color: #ffffff;
-  color: #000000;
-  width: 30%;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  letter-spacing: 1px;
 }
 
 .button:hover {
-  background-color: #000000;
-  color: #ffffff;
+  background-color: #ff157e;
+  color: white;
 }
 
-.button-2 {
-  width: auto;
-  background-color: #000000;
-  color: #ffffff;
-  width: 30%;
+#page-details {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.button-2:hover {
-  background-color: #ffffff;
-  color: #000000;
+#name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  gap: 1rem;
 }
-
-.button-3 {
-  width: auto;
+#name input {
+  border-radius: 25px;
+  padding: 0.5rem 0;
+  text-align: center;
+  font-size: 1rem;
 }
 
 .field {
@@ -134,8 +133,30 @@
   width: 70%;
 }
 
+.button-2 {
+  border-radius: 25px;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  border: 0;
+  width: auto;
+  background-color: black;
+  color: white;
+  width: 30%;
+}
+
+.button-2:hover {
+  background-color: white;
+  color: black;
+}
+
 #notes {
+  flex-shrink: 1;
   border-radius: 10px 10px 0 0;
+  margin-top: auto;
+}
+
+.button-3 {
+  width: auto;
 }
 
 #route {
