@@ -44,6 +44,33 @@ $color-gray: #aaaaaa;
 	}
 }
 
+#info-dialog {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	z-index: 100;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	> div {
+		background-color: white;
+		width: 80%;
+		padding: 2rem;
+		border-radius: 5px;
+		border: 2px solid black;
+		gap: 1rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		p {
+			font-size: $font-standard;
+		}
+	}
+}
+
 #background {
 	opacity: 40%;
 	background-color: $color-lightpink;
