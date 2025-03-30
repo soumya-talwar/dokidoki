@@ -21,7 +21,31 @@ $color-gray: #aaaaaa;
 	letter-spacing: 3px;
 }
 
+#permission {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	z-index: 100;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	> div {
+		background-color: white;
+		width: 80%;
+		height: 20%;
+		border-radius: 5px;
+		border: 2px solid black;
+		gap: 1rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
 #background {
+	opacity: 40%;
 	background-color: $color-lightpink;
 	display: flex;
 	height: 100%;
