@@ -15,7 +15,7 @@ $("document").ready(() => {
 			$("#info-dialog").removeClass("d-none");
 			info.play();
 			info.addEventListener("ended", () => music.play());
-		}, 500);
+		}, 100);
 	});
 	$("#back").click(() => {
 		setTimeout(() => {

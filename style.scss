@@ -2,6 +2,7 @@ $font-standard: 1rem;
 $font-small: 0.8rem;
 $color-lightpink: #fff0f0;
 // $color-pink: #f4c4b3;
+$color-darkpink: #ff157e;
 $color-gray: #aaaaaa;
 
 @font-face {
@@ -167,7 +168,7 @@ $color-gray: #aaaaaa;
 }
 
 .button:hover {
-	background-color: #ff157e;
+	background-color: $color-darkpink;
 	color: white;
 }
 
