@@ -1,10 +1,10 @@
-var user;
+var user, music, info, chat, button;
 
 $("document").ready(() => {
-	var music = new Audio("audio/bgm.mp3");
-	var info = new Audio("audio/info.m4a");
-	var chat = new Audio("audio/chat.mp3");
-	var button = new Audio("audio/button.mp3");
+	music = new Audio("audio/bgm.mp3");
+	info = new Audio("audio/info.m4a");
+	chat = new Audio("audio/chat.mp3");
+	button = new Audio("audio/button.mp3");
 	$("#play").click(() => {
 		music.play();
 		music.loop = true;
@@ -56,6 +56,10 @@ $("document").ready(() => {
 				});
 			}, 100);
 		});
+	});
+
+	$("#reply").click(() => {
+		$("#speaking, #waiting").toggleClass("d-none");
 	});
 });
 

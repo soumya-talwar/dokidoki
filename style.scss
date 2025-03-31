@@ -3,6 +3,7 @@ $font-small: 0.8rem;
 $color-lightpink: #fff0f0;
 $color-pink: #fb90c0;
 $color-darkpink: #ff157e;
+$color-lightgray: #dddddd;
 $color-gray: #aaaaaa;
 $color-darkgray: #6b6b6b;
 
@@ -15,10 +16,6 @@ $color-darkgray: #6b6b6b;
 @font-face {
 	font-family: retro;
 	src: url(fonts/pressstart.ttf);
-}
-
-body {
-	background-color: $color-pink;
 }
 
 * {
@@ -130,6 +127,7 @@ body {
 	padding: 3%;
 
 	> div {
+		background-color: $color-pink;
 		background-image: url(images/title.gif);
 		background-size: cover;
 		background-position: center;
@@ -226,7 +224,7 @@ body {
 	gap: 1rem;
 
 	.icon {
-		width: 25;
+		width: 25px;
 		height: 25px;
 
 		img {
@@ -245,6 +243,11 @@ body {
 }
 
 #page-chat {
+	height: 100%;
+	width: 100%;
+}
+
+#speaking {
 	height: 100%;
 	width: 100%;
 	display: flex;
@@ -275,6 +278,48 @@ body {
 
 #reply {
 	align-self: flex-start;
+}
+
+#waiting {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: 1.5rem 2rem 0 2rem;
+	gap: 1rem;
+}
+
+.response {
+	width: 100%;
+	padding: 1rem 1rem;
+	background-color: white;
+	color: black;
+	border: 2px solid black;
+	border-radius: 5px;
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+
+	&:hover {
+		background-color: $color-lightgray;
+	}
+
+	.icon {
+		width: 100px;
+		height: 100px;
+		display: flex;
+		align-items: center;
+
+		img {
+			width: 100%;
+		}
+	}
+
+	p {
+		font-size: $font-standard;
+		letter-spacing: 1px;
+		margin: 0;
+	}
 }
 
 @media only screen and (max-width: 600px) {

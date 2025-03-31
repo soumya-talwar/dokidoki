@@ -7,10 +7,6 @@
   font-family: retro;
   src: url(fonts/pressstart.ttf);
 }
-body {
-  background-color: #fb90c0;
-}
-
 * {
   font-family: retro;
   font-size: 0.8rem;
@@ -114,6 +110,7 @@ body {
   padding: 3%;
 }
 #window > div {
+  background-color: #fb90c0;
   background-image: url(images/title.gif);
   background-size: cover;
   background-position: center;
@@ -205,7 +202,7 @@ body {
   gap: 1rem;
 }
 .player .icon {
-  width: 25;
+  width: 25px;
   height: 25px;
 }
 .player .icon img {
@@ -220,6 +217,11 @@ body {
 }
 
 #page-chat {
+  height: 100%;
+  width: 100%;
+}
+
+#speaking {
   height: 100%;
   width: 100%;
   display: flex;
@@ -249,6 +251,44 @@ body {
 
 #reply {
   align-self: flex-start;
+}
+
+#waiting {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 2rem 0 2rem;
+  gap: 1rem;
+}
+
+.response {
+  width: 100%;
+  padding: 1rem 1rem;
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.response:hover {
+  background-color: #dddddd;
+}
+.response .icon {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+}
+.response .icon img {
+  width: 100%;
+}
+.response p {
+  font-size: 1rem;
+  letter-spacing: 1px;
+  margin: 0;
 }
 
 @media only screen and (max-width: 600px) {
