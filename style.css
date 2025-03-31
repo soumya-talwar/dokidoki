@@ -117,6 +117,10 @@
   align-items: flex-start;
 }
 
+.talking {
+  background-image: url(images/chat.gif) !important;
+}
+
 #page-title {
   height: 100%;
   width: 100%;
@@ -180,7 +184,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 5rem 1rem 0 1rem;
+  padding: 1.5rem 1rem 0 1rem;
   gap: 1rem;
 }
 #page-player > p {
@@ -213,6 +217,34 @@
 }
 .player span.disabled {
   color: #6b6b6b;
+}
+
+#page-chat {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 1rem 0 1rem;
+  gap: 1rem;
+}
+
+#speech {
+  width: 90%;
+  font-size: 1rem;
+  padding: 1rem 1rem;
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  border-radius: 5px;
+  letter-spacing: 1px;
+}
+#speech p {
+  margin: 0;
+}
+
+#invisible {
+  color: white !important;
 }
 
 @media only screen and (max-width: 600px) {

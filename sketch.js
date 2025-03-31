@@ -38,10 +38,24 @@ $("document").ready(() => {
 		});
 	});
 
-	// $("#talk").click(() => {
-	// 	$("#page-details").fadeOut(300, () => {
-	// 		$("#page-details, #chat").toggleClass("d-none");
-	// 		$("#chat").fadeIn(300);
-	// 	});
-	// });
+	$("#meet").click(() => {
+		let text = `hi ${user}! how are you? how was the weekend?`;
+		$("#invisible").text(text);
+		$("#page-player").fadeOut(300, () => {
+			$("#page-details, #page-chat").toggleClass("d-none");
+			$("#window>div").toggleClass("talking");
+			type(text);
+		});
+	});
 });
+
+function type(text) {
+	let i = 0;
+	let typing = setInterval(() => {
+		if (i <= text.length) {
+			$("#visible").text(text.substring(0, i));
+			$("#invisible").text(text.substring(i, text.length));
+			i++;
+		} else clearInterval(typing);
+	}, 70);
+}
