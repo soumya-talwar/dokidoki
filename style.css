@@ -236,11 +236,11 @@
   color: black;
   border: 2px solid black;
   border-radius: 5px;
-  letter-spacing: 1px;
 }
 #speech p,
 #speech span {
   font-size: 1rem;
+  letter-spacing: 1px;
   margin: 0;
 }
 
