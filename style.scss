@@ -1,9 +1,10 @@
 $font-standard: 1rem;
 $font-small: 0.8rem;
 $color-lightpink: #fff0f0;
-// $color-pink: #f4c4b3;
+$color-pink: #fb90c0;
 $color-darkpink: #ff157e;
 $color-gray: #aaaaaa;
+$color-darkgray: #6b6b6b;
 
 @font-face {
 	font-family: "inter";
@@ -178,97 +179,65 @@ $color-gray: #aaaaaa;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 3rem 1rem 0 1rem;
+	padding: 5rem 1rem 0 1rem;
 	gap: 1rem;
 
 	input {
+		border: 2px solid black;
 		border-radius: 25px;
+		outline: none;
+		width: 70%;
 		padding: 0.5rem 0;
 		text-align: center;
 		font-size: $font-standard;
 	}
 }
 
-.field {
-	border: none;
-	outline: none;
-	width: 70%;
-}
-
-#route {
-	overflow-x: scroll;
-	height: 80%;
-}
-
-#wrapper {
+#page-player {
 	height: 100%;
-	width: 300%;
-	overflow-x: scroll;
-}
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 5rem 1rem 0 1rem;
+	gap: 1rem;
 
-.story {
-	overflow-x: auto;
-	height: 100%;
-	width: 33%;
-	border-radius: 15px;
-}
+	> p {
+		color: white;
+		letter-spacing: 1px;
+		font-size: $font-standard;
+	}
 
-.icon {
-	background-color: #c92f18;
-	color: #ffffff;
-	width: 2.5rem;
-	height: 2.5rem;
-
-	span {
-		font-size: 1.1rem;
+	> div {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
 	}
 }
 
-.name {
-	font-size: 1.2rem;
-	letter-spacing: 2;
-}
+.player {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
 
-.image {
-	width: 100%;
-}
+	.icon {
+		width: 25;
+		height: 25px;
 
-.image img {
-	width: 100%;
-	height: auto;
-}
+		img {
+			width: 100%;
+		}
+	}
 
-.prompt {
-	letter-spacing: 1;
-}
+	span {
+		font-size: $font-standard;
+		letter-spacing: 1px;
+	}
 
-.answer {
-	letter-spacing: 2;
-	font-variation-settings: "wght" 600;
-	font-size: 1.8rem;
-	line-height: 2.2rem;
-}
-
-#chat {
-	background-image: url(images/soumya\ 2.jpg);
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	align-items: flex-start;
-}
-
-.message,
-.response {
-	background-color: #ffffff;
-	padding: 0.5rem 1rem;
-	border-radius: 10px;
-	max-width: 80%;
-	letter-spacing: 2px;
-}
-
-.response {
-	background-color: #000000;
-	color: #ffffff;
+	span.disabled {
+		color: $color-darkgray;
+	}
 }
 
 @media only screen and (max-width: 600px) {

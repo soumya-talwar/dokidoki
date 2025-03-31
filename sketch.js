@@ -28,17 +28,15 @@ $("document").ready(() => {
 	$("#start").click(() => {
 		$("#page-title").fadeOut(300, () => {
 			$("#page-title, #page-name").toggleClass("d-none");
-			$("#page-name").fadeIn(300);
 		});
 	});
 
-	// $("#submit").click(() => {
-	// 	user = $("#user").val();
-	// 	$("#name").fadeOut(300, () => {
-	// 		$("#name, #route").toggleClass("d-none");
-	// 		$("#route").fadeIn(300);
-	// 	});
-	// });
+	$("#submit").click(() => {
+		user = $("#user").val();
+		$("#page-name").fadeOut(300, () => {
+			$("#page-name, #page-player").toggleClass("d-none");
+		});
+	});
 
 	// $("#talk").click(() => {
 	// 	$("#page-details").fadeOut(300, () => {
