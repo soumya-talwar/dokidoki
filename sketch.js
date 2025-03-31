@@ -2,13 +2,16 @@ var user;
 
 $("document").ready(() => {
 	var music = new Audio("audio/bgm.mp3");
+	var info = new Audio("audio/info.m4a");
+	var chat = new Audio("audio/chat.mp3");
+	var button = new Audio("audio/button.mp3");
 	$("#play").click(() => {
 		music.play();
 		music.loop = true;
 		$("#permission").addClass("d-none");
 		$("#background").css("opacity", "100%");
 	});
-	var info = new Audio("audio/info.m4a");
+	$(".button").click(() => button.play());
 	$("#info").click(() => {
 		setTimeout(() => {
 			music.pause();
@@ -39,12 +42,19 @@ $("document").ready(() => {
 	});
 
 	$("#meet").click(() => {
-		let text = `i don't drink or smoke, or drink tea or coffee for that matter. it's less about self restraint, but i've never enjoyed it. people find it unusual. i'm also not on any social media, which makes it difficult for me to connect with people because my lifestyle is so removed from the common. what about you? are you on social media?`;
+		let text = `hi ${user}! how are you? how was your weekend?`;
 		$("#invisible").text(text);
 		$("#page-player").fadeOut(300, () => {
-			$("#page-details, #page-chat").toggleClass("d-none");
-			$("#window>div").toggleClass("talking");
-			type(text);
+			music.pause();
+			setTimeout(() => {
+				chat.play();
+				$("#page-details, #page-chat").toggleClass("d-none");
+				$("#window>div").css("background-image", "url(images/chat2.gif)");
+				chat.addEventListener("ended", () => {
+					$("#window>div").css("background-image", "url(images/chat1.gif)");
+					type(text);
+				});
+			}, 100);
 		});
 	});
 });
@@ -56,6 +66,11 @@ function type(text) {
 			$("#visible").text(text.substring(0, i));
 			$("#invisible").text(text.substring(i, text.length));
 			i++;
-		} else clearInterval(typing);
+		} else {
+			$("#window>div").css("background-image", "url(images/chat2.gif)");
+			$("#reply").removeClass("d-none");
+			music.play();
+			clearInterval(typing);
+		}
 	}, 70);
 }

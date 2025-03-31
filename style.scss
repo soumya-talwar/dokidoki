@@ -134,10 +134,6 @@ $color-darkgray: #6b6b6b;
 	}
 }
 
-.talking {
-	background-image: url(images/chat.gif) !important;
-}
-
 #page-title {
 	height: 100%;
 	width: 100%;
@@ -249,13 +245,12 @@ $color-darkgray: #6b6b6b;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	padding: 1.5rem 1rem 0 1rem;
-	gap: 1rem;
+	padding: 1.5rem 2rem 0 2rem;
+	gap: 2rem;
 }
 
 #speech {
-	width: 90%;
+	width: 100%;
 	padding: 1rem 1rem;
 	background-color: white;
 	color: black;
@@ -272,6 +267,10 @@ $color-darkgray: #6b6b6b;
 
 #invisible {
 	color: white !important;
+}
+
+#reply {
+	align-self: flex-start;
 }
 
 @media only screen and (max-width: 600px) {
