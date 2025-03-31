@@ -17,6 +17,10 @@ $color-darkgray: #6b6b6b;
 	src: url(fonts/pressstart.ttf);
 }
 
+body {
+	background-color: $color-pink;
+}
+
 * {
 	font-family: retro;
 	font-size: $font-small;

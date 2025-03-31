@@ -7,6 +7,10 @@
   font-family: retro;
   src: url(fonts/pressstart.ttf);
 }
+body {
+  background-color: #fb90c0;
+}
+
 * {
   font-family: retro;
   font-size: 0.8rem;
