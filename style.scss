@@ -256,7 +256,6 @@ $color-darkgray: #6b6b6b;
 
 #speech {
 	width: 90%;
-	font-size: $font-standard;
 	padding: 1rem 1rem;
 	background-color: white;
 	color: black;
@@ -264,7 +263,9 @@ $color-darkgray: #6b6b6b;
 	border-radius: 5px;
 	letter-spacing: 1px;
 
-	p {
+	p,
+	span {
+		font-size: $font-standard;
 		margin: 0;
 	}
 }

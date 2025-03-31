@@ -39,7 +39,7 @@ $("document").ready(() => {
 	});
 
 	$("#meet").click(() => {
-		let text = `hi ${user}! how are you? how was the weekend?`;
+		let text = `i don't drink or smoke or drink tea or coffee for that matter. it's less about self restraint, but i've never enjoyed it. people find it unusual. i'm also not on any social media, which is why it's difficult for me to connect with people because my lifestyle is so removed from the common. what about you? are you on social media?`;
 		$("#invisible").text(text);
 		$("#page-player").fadeOut(300, () => {
 			$("#page-details, #page-chat").toggleClass("d-none");

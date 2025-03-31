@@ -231,7 +231,6 @@
 
 #speech {
   width: 90%;
-  font-size: 1rem;
   padding: 1rem 1rem;
   background-color: white;
   color: black;
@@ -239,7 +238,9 @@
   border-radius: 5px;
   letter-spacing: 1px;
 }
-#speech p {
+#speech p,
+#speech span {
+  font-size: 1rem;
   margin: 0;
 }
 
