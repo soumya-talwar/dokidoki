@@ -1,10 +1,13 @@
 var user, music, info, chat, button;
+var message;
 
 $("document").ready(() => {
 	music = new Audio("audio/bgm.mp3");
+	music.volume = 0.3;
 	info = new Audio("audio/info.m4a");
 	chat = new Audio("audio/chat.mp3");
 	button = new Audio("audio/button.mp3");
+	message = new Audio("audio/message1.m4a");
 	$("#play").click(() => {
 		music.play();
 		music.loop = true;
@@ -46,12 +49,14 @@ $("document").ready(() => {
 		$("#invisible").text(text);
 		$("#page-player").fadeOut(300, () => {
 			music.pause();
+			music.currentTime = 0;
 			setTimeout(() => {
 				chat.play();
 				$("#page-details, #page-chat").toggleClass("d-none");
 				$("#window>div").css("background-image", "url(images/chat2.gif)");
 				chat.addEventListener("ended", () => {
 					$("#window>div").css("background-image", "url(images/chat1.gif)");
+					message.play();
 					type(text);
 				});
 			}, 100);
@@ -59,7 +64,10 @@ $("document").ready(() => {
 	});
 
 	$("#reply").click(() => {
-		$("#speaking, #waiting").toggleClass("d-none");
+		$("#speaking").fadeOut(300, () => {
+			$("#speaking, #waiting").toggleClass("d-none");
+			music.play();
+		});
 	});
 });
 
@@ -73,7 +81,6 @@ function type(text) {
 		} else {
 			$("#window>div").css("background-image", "url(images/chat2.gif)");
 			$("#reply").removeClass("d-none");
-			music.play();
 			clearInterval(typing);
 		}
 	}, 70);
