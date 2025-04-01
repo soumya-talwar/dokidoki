@@ -82,6 +82,7 @@ $("document").ready(() => {
 			music.play();
 		});
 	});
+	$("#job").click(() => {});
 });
 
 function speak() {
@@ -103,14 +104,14 @@ function speak() {
 function wait() {
 	let options;
 	if (data[index].options.length == 1) options = data[index].options[0];
-	else options = data[index].options[answers[index - 1]];
+	else options = data[index].options[answers[index - 1].option.index];
 	$("#waiting").html("");
 	for (let i = 0; i < options.length; i++) {
 		if (options[i].field) {
 			$("#waiting").append(`
         <div class="response">
-          <input type="text" placeholder="${options[i].text}" id="${data[index].question}" />
-          <button class="button">submit</button>
+          <input type="text" class="" placeholder="${options[i].text}" id="${data[index].question}" />
+          <button class="button" id="job">submit</button>
         </div>`);
 		} else {
 			$("#waiting").append(`

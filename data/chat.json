@@ -24,7 +24,7 @@
 		{
 			"question": "personality",
 			"message": [
-				"that sounds fun! would you describe yourself as an introvert or an extrovert?",
+				"that sounds fun! i can't tell if you're an introvert or an extrovert, which would you say fits you?",
 				"that sounds fun! you sound like an introvert, would you describe yourself as one?",
 				"that sounds fun! you sound like an extrovert, would you describe yourself as one?"
 			],
@@ -49,7 +49,7 @@
 		{
 			"question": "drinking",
 			"message": [
-				"i've always been confused if i am an introvert or an extrovert. it keeps changing, depending on the time and the situation and the people around me. ah! my drink is here! do you want to order any beverage? do you drink?"
+				"i've always been confused if i am an introvert or an extrovert. it keeps changing, depending on the time, situation and the people around me. ah! my drink is here! do you want to order any beverage? do you drink?"
 			],
 			"options": [
 				[
@@ -171,7 +171,7 @@
 		{
 			"question": "marriage",
 			"message": [
-				"okay, that's good to know. thank you for sharing, i know i threw that out of nowhere. but i'm curious, are your parents not pushing for you to get married?"
+				"that's good to know. thank you for sharing, i know i threw that out of nowhere. but i'm curious, are your parents not pushing for you to get married?"
 			],
 			"options": [
 				[
