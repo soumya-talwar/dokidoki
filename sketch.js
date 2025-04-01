@@ -110,8 +110,10 @@ function wait() {
 		if (options[i].field) {
 			$("#waiting").append(`
         <div class="response">
-          <input type="text" class="" placeholder="${options[i].text}" id="${data[index].question}" />
-          <button class="button" id="job">submit</button>
+          <div class="form">
+            <input type="text" class="" placeholder="${options[i].text}" id="${options[i].text}" />
+            <button class="button" id="job">submit</button>
+          </div>
         </div>`);
 		} else {
 			$("#waiting").append(`

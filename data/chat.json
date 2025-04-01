@@ -280,7 +280,7 @@
 			"options": [
 				[
 					{
-						"text": "your occupation",
+						"text": "occupation",
 						"field": true,
 						"point": 0
 					}
