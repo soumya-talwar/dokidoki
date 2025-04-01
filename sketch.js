@@ -1,13 +1,23 @@
-var user, music, info, chat, button;
-var message;
+var music = new Audio("audio/bgm.mp3");
+music.volume = 0.3;
+var info = new Audio("audio/info.m4a");
+var transition = new Audio("audio/transition.mp3");
+var button = new Audio("audio/button.mp3");
+var recordings = [];
+
+var parameters = {};
+var data = [];
+var answers = [];
+var points = [];
+var index = -1;
+
+fetch("data/chat.json")
+	.then((response) => response.json())
+	.then((messages) => {
+		data = messages.messages;
+	});
 
 $("document").ready(() => {
-	music = new Audio("audio/bgm.mp3");
-	music.volume = 0.3;
-	info = new Audio("audio/info.m4a");
-	chat = new Audio("audio/chat.mp3");
-	button = new Audio("audio/button.mp3");
-	message = new Audio("audio/message1.m4a");
 	$("#play").click(() => {
 		music.play();
 		music.loop = true;
@@ -38,26 +48,26 @@ $("document").ready(() => {
 	});
 
 	$("#submit").click(() => {
-		user = $("#user").val();
+		parameters.user = $("#user").val();
 		$("#page-name").fadeOut(300, () => {
 			$("#page-name, #page-player").toggleClass("d-none");
 		});
 	});
 
 	$("#meet").click(() => {
-		let text = `hi ${user}! how are you? how was your weekend?`;
-		$("#invisible").text(text);
+		$("#invisible").text(
+			`hi ${parameters.user}! how are you? how was your weekend?`
+		);
 		$("#page-player").fadeOut(300, () => {
 			music.pause();
 			music.currentTime = 0;
 			setTimeout(() => {
-				chat.play();
+				transition.play();
 				$("#page-details, #page-chat").toggleClass("d-none");
 				$("#window>div").css("background-image", "url(images/chat2.gif)");
-				chat.addEventListener("ended", () => {
+				transition.addEventListener("ended", () => {
 					$("#window>div").css("background-image", "url(images/chat1.gif)");
-					message.play();
-					type(text);
+					speak();
 				});
 			}, 100);
 		});
@@ -65,11 +75,76 @@ $("document").ready(() => {
 
 	$("#reply").click(() => {
 		$("#speaking").fadeOut(300, () => {
-			$("#speaking, #waiting").toggleClass("d-none");
+			wait();
+			$("#waiting").removeClass("d-none");
+			$("#reply").addClass("d-none");
+			$("#waiting").show();
 			music.play();
 		});
 	});
 });
+
+function speak() {
+	index++;
+	let message = data[index];
+	let text;
+	$("#visible, #invisible").html("");
+	if (message.message.length == 1) {
+		text = message.message[0];
+	} else {
+		text = message.message[answers[index - 1].option.index];
+	}
+	let matches = /<([^>]+)>/g.exec(text);
+	if (matches) text = text.replace(matches[0], parameters[matches[1]]);
+	$("#invisible").html(text);
+	type(text);
+}
+
+function wait() {
+	let options;
+	if (data[index].options.length == 1) options = data[index].options[0];
+	else options = data[index].options[answers[index - 1]];
+	$("#waiting").html("");
+	for (let i = 0; i < options.length; i++) {
+		if (options[i].field) {
+			$("#waiting").append(`
+        <div class="response">
+          <input type="text" placeholder="${options[i].text}" id="${data[index].question}" />
+          <button class="button">submit</button>
+        </div>`);
+		} else {
+			$("#waiting").append(`
+        <div class="response">
+          <div class="icon">
+          <img src="images/heart1.png" />
+          </div>
+          <div class="text">
+          <p>${options[i].text}</p>
+          </div>
+        </div>`);
+		}
+	}
+	$(".response").click(function () {
+		let answer = {};
+		let prev = 0;
+		answer.question = data[index].question;
+		answer.option = {};
+		let index2 = $(this).index();
+		answer.option.index = index2;
+		if (data[index].options.length == 1) prev = 0;
+		else prev = answers[index - 1].option.index;
+		answer.option.text = data[index].options[prev][index2].text;
+		answer.option.point = data[index].options[prev][index2].point;
+		answer.weight = data[index].weight;
+		answers.push(answer);
+		$("#waiting").fadeOut(300, () => {
+			speak();
+			$("#speaking").show();
+			music.pause();
+			music.currentTime = 0;
+		});
+	});
+}
 
 function type(text) {
 	let i = 0;

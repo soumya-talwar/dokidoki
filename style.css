@@ -277,15 +277,13 @@
   background-color: #dddddd;
 }
 .response .icon {
-  width: 100px;
-  height: 100px;
-  display: flex;
-  align-items: center;
+  min-width: 1.5rem;
+  max-width: 1.5rem;
 }
 .response .icon img {
   width: 100%;
 }
-.response p {
+.response .text p {
   font-size: 1rem;
   letter-spacing: 1px;
   margin: 0;
