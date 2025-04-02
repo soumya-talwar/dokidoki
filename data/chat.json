@@ -1,6 +1,278 @@
 {
 	"messages": [
 		{
+			"question": "weekend",
+			"message": ["hi <user>! how are you? how was your weekend?"],
+			"options": [
+				[
+					{
+						"text": "it was alright. i caught up on sleep, watched netflix and played fifa with friends",
+						"point": 0
+					},
+					{
+						"text": "i mostly spent it at the gym, went for a run with my dog. got to do a little gardening.",
+						"point": 1
+					},
+					{
+						"text": "friends and i went to a rave party, it was fun.",
+						"point": -1
+					}
+				]
+			],
+			"weight": 1
+		},
+		{
+			"question": "personality",
+			"message": [
+				"that sounds fun! i can't tell if you're an introvert or an extrovert, which would you say fits you?",
+				"that sounds fun! you sound like an introvert, would you describe yourself as one?",
+				"that sounds fun! you sound like an extrovert, would you describe yourself as one?"
+			],
+			"options": [
+				[
+					{
+						"text": "neither, i would think i am an ambivert.",
+						"point": 0
+					},
+					{
+						"text": "i would say i am an introvert.",
+						"point": 1
+					},
+					{
+						"text": "oh i'm an extrovert for sure.",
+						"point": 0
+					}
+				]
+			],
+			"weight": 1
+		},
+		{
+			"question": "drinking",
+			"message": [
+				"i've always been confused if i am an introvert or an extrovert. it keeps changing, depending on the time, situation and the people around me. ah! my drink is here! do you want to order any beverage? do you drink?"
+			],
+			"options": [
+				[
+					{
+						"text": "i like to drink.",
+						"point": -1
+					},
+					{
+						"text": "i drink, but only occasionally.",
+						"point": 0
+					},
+					{
+						"text": "i don't drink, but i like to smoke.",
+						"point": -1
+					},
+					{
+						"text": "i don't drink.",
+						"point": 1
+					}
+				]
+			],
+			"weight": 1
+		},
+		{
+			"question": "socialmedia",
+			"message": [
+				"i see. i don't drink or smoke, or drink tea or coffee for that matter. it's less to do with restraint, i just don't enjoy it. and people find it unusual. i'm also not on social media, so it's honestly difficult for me to connect with other people since my lifestyle is so removed from the common. what about you? are you on social media?"
+			],
+			"options": [
+				[
+					{
+						"text": "i am. i like to create content. it's also what helps me stay connected with my friends who're not in the city.",
+						"point": -1
+					},
+					{
+						"text": "i am on it, but i don't really have a presence. i want to get off it actually.",
+						"point": 0
+					},
+					{
+						"text": "i am not on any social media either.",
+						"point": 1
+					}
+				]
+			],
+			"weight": 1
+		},
+		{
+			"question": "diet",
+			"message": [
+				"that's interesting, i used to be a content creator myself. i used to write queer horror fanfiction but i got cancelled on twitter which is when i got off social media altogether and it was really good to me. wait before we forget, let's place our order first. what do you want to get? are you non-vegetarian?"
+			],
+			"options": [
+				[
+					{
+						"text": "yes i'm non-vegetarian. i need the protein.",
+						"point": 1
+					},
+					{
+						"text": "no i'm vegetarian. i wonder if their menu has decent vegetarian options.",
+						"point": 0
+					}
+				]
+			],
+			"weight": 1
+		},
+		{
+			"question": "lifestyle",
+			"message": [
+				"perfect, let's get their chicken spaghetti. you mentioned protein, are you into fitness?",
+				"i heard their chilli garlic street noodles are good. we can get that. are you vegetarian for religious reasons?"
+			],
+			"options": [
+				[
+					{
+						"text": "yes, i like to maintain a healthy diet and lifestyle.",
+						"point": 1
+					},
+					{
+						"text": "no, i'd like to but my schedule is pretty hectic.",
+						"point": -1
+					}
+				],
+				[
+					{
+						"text": "yes, my faith forbids meat.",
+						"point": -1
+					},
+					{
+						"text": "i'm not religious, it's more of a personal choice. i can't stand animal cruelty.",
+						"point": 0
+					}
+				]
+			],
+			"weight": 1
+		},
+		{
+			"question": "relationship",
+			"message": [
+				"that makes sense. sorry i am going to ask an abrupt question. i like to ask this upfront to save us both the time and energy, but what kind of a relationship are you looking for?"
+			],
+			"options": [
+				[
+					{
+						"text": "i am looking for something long-term and serious.",
+						"point": 1
+					},
+					{
+						"text": "i am not looking for anything long-term right now.",
+						"point": -1
+					},
+					{
+						"text": "i am not sure. it depends on the person, if i feel like i want something long with them, i'd want to pursue that.",
+						"point": -1
+					}
+				]
+			],
+			"weight": 1
+		},
+		{
+			"question": "marriage",
+			"message": [
+				"that's good to know. thank you for sharing, i know i threw that out of nowhere. but i'm curious, are your parents not pushing for you to get married?"
+			],
+			"options": [
+				[
+					{
+						"text": "yes they are, but i am also in agreement. i would like to look for a life partner.",
+						"point": 1
+					},
+					{
+						"text": "yes they are, but i am holding them off. i don't think marriage is in my plans right now.",
+						"point": -1
+					},
+					{
+						"text": "no they aren't pressuring me, they're pretty chill.",
+						"point": 0
+					}
+				]
+			],
+			"weight": 1
+		},
+		{
+			"question": "kids",
+			"message": [
+				"interesting. mine are very enthusiastic about this topic. i want to know though, marriage aside, any strong opinions on kids?"
+			],
+			"options": [
+				[
+					{
+						"text": "i would want kids i think.",
+						"point": -1
+					},
+					{
+						"text": "maybe, but just one.",
+						"point": -1
+					},
+					{
+						"text": "no strong opinions. i am open to it.",
+						"point": 1
+					},
+					{
+						"text": "no, i don't want kids. i would like to keep pets though.",
+						"point": 1
+					}
+				]
+			],
+			"weight": 1
+		},
+		{
+			"question": "cooking",
+			"message": [
+				"i don't think i would want kids myself. i'm open to pets though, although i've never had one before. i really like donkeys and ducks. oh the food is really good. i am usually very selective but i am trying to become more adventurous with my choices. do you cook by any chance?"
+			],
+			"options": [
+				[
+					{
+						"text": "yes, i love cooking.",
+						"point": 1
+					},
+					{
+						"text": "sometimes. i can cook, i just can't do it very often",
+						"point": 0
+					},
+					{
+						"text": "no i can't cook. never had a chance to learn it.",
+						"point": -1
+					}
+				]
+			],
+			"weight": 1
+		},
+		{
+			"question": "house",
+			"message": [
+				"i honestly don't cook much myself. i live alone and the house and work alone are very demanding of my time. also because i am nearly compulsively organized so i am always cleaning the house. do you live alone or with friends or family?"
+			],
+			"options": [
+				[
+					{
+						"text": "i live with family so i don't have to do a lot of what you do.",
+						"point": -1
+					},
+					{
+						"text": "i live with friends, we divide the chores between us so it's not a huge load.",
+						"point": 0
+					},
+					{
+						"text": "i live alone, but i can't say i am very organized.",
+						"point": -1
+					},
+					{
+						"text": "i live alone, and i am organized, but no i'm not what you'd call a neat freak.",
+						"point": 1
+					},
+					{
+						"text": "i live alone and yes i am also unfortunately as obsessed with cleaning the house.",
+						"point": -1
+					}
+				]
+			],
+			"weight": 1
+		},
+		{
 			"question": "occupation",
 			"message": [
 				"makes sense. oh and i forgot to ask, what do you do for work?"
@@ -8,7 +280,7 @@
 			"options": [
 				[
 					{
-						"text": "i work as a:",
+						"text": "occupation",
 						"field": true,
 						"point": 0
 					}

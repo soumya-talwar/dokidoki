@@ -218,5 +218,5 @@ function type(text, index) {
 			else $(".form").removeClass("invisible");
 			clearInterval(typing);
 		}
-	}, 10);
+	}, 70);
 }
