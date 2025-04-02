@@ -309,6 +309,7 @@
 .response2 .phrase {
   width: 100%;
   display: flex;
+  align-items: center;
   gap: 1rem;
 }
 .response2 .icon {

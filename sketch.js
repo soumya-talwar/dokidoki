@@ -93,7 +93,7 @@ $("document").ready(() => {
 			if (winindex == 2) {
 				$("#window>div").css("background-image", "url(images/chat1.gif)");
 				type($(".feedback .invisible").eq(0).text(), 2);
-			}
+			} else music.play();
 			winindex++;
 		}
 	});
@@ -109,6 +109,9 @@ $("document").ready(() => {
 			message: $("#message").val(),
 		});
 		$("#page-win, #page-end").toggleClass("d-none");
+		music.play();
+		$("#window>div").css("background-size", "135%");
+		$("#window>div").css("background-position", "50% 70%");
 	});
 });
 
@@ -181,13 +184,12 @@ function wait() {
 			.fadeOut(300, () => {
 				speak();
 				$(".speaking").eq(0).show();
-				music.pause();
-				music.currentTime = 0;
 			});
 	});
 
 	$("#job").click(() => {
 		button.play();
+		music.play();
 		parameters.job = $("#job").val();
 		$("#page-chat").fadeOut(300, () => {
 			win = true;
@@ -202,6 +204,8 @@ function wait() {
 }
 
 function type(text, index) {
+	music.pause();
+	music.currentTime = 0;
 	let i = 0;
 	let typing = setInterval(() => {
 		if (i <= text.length) {
@@ -218,5 +222,5 @@ function type(text, index) {
 			else $(".form").removeClass("invisible");
 			clearInterval(typing);
 		}
-	}, 70);
+	}, 10);
 }
