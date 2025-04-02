@@ -65,10 +65,7 @@ $("document").ready(() => {
 				transition.play();
 				$("#page-details, #page-chat").toggleClass("d-none");
 				$("#window>div").css("background-image", "url(images/chat2.gif)");
-				transition.addEventListener("ended", () => {
-					$("#window>div").css("background-image", "url(images/chat1.gif)");
-					speak();
-				});
+				transition.addEventListener("ended", () => speak());
 			}, 100);
 		});
 	});
@@ -86,6 +83,7 @@ $("document").ready(() => {
 });
 
 function speak() {
+	$("#window>div").css("background-image", "url(images/chat1.gif)");
 	index++;
 	let message = data[index];
 	let text;
@@ -128,6 +126,7 @@ function wait() {
 		}
 	}
 	$(".response").click(function () {
+		button.play();
 		let answer = {};
 		let prev = 0;
 		answer.question = data[index].question;
@@ -161,5 +160,5 @@ function type(text) {
 			$("#reply").removeClass("d-none");
 			clearInterval(typing);
 		}
-	}, 70);
+	}, 10);
 }
