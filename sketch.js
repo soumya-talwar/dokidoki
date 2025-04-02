@@ -160,5 +160,5 @@ function type(text) {
 			$("#reply").removeClass("d-none");
 			clearInterval(typing);
 		}
-	}, 10);
+	}, 70);
 }
