@@ -2,15 +2,25 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>doki doki</title>
+		<script
+			src="https://code.jquery.com/jquery-3.6.0.min.js"
+			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			crossorigin="anonymous"></script>
+		<script
+			type="text/javascript"
+			src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+		<script type="text/javascript">
+			(function () {
+				emailjs.init({
+					publicKey: "BbYoE5Ibm1j-CQJEW",
+				});
+			})();
+		</script>
 		<link
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
 			rel="stylesheet"
 			integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
 			crossorigin="anonymous" />
-		<script
-			src="https://code.jquery.com/jquery-3.6.0.min.js"
-			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-			crossorigin="anonymous"></script>
 		<script
 			src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"
 			integrity="sha512-N4kV7GkNv7QR7RX9YF/olywyIgIwNvfEe2nZtfyj73HdjCUkAfOBDbcuJ/cTaN04JKRnw1YG1wnUyNKMsNgg3g=="
@@ -21,6 +31,8 @@
 		<link rel="preload" href="/images/title.gif" as="image" />
 		<link rel="preload" href="/images/chat1.gif" as="image" />
 		<link rel="preload" href="/images/chat2.gif" as="image" />
+		<link rel="preload" href="/images/chat3.gif" as="image" />
+		<link rel="preload" href="/images/chat4.gif" as="image" />
 		<meta
 			name="viewport"
 			content="width=device-width, initial-scale=1.0, user-scalable=no;user-scalable=0;" />
@@ -92,13 +104,87 @@
 							</div>
 						</div>
 						<div class="d-none" id="page-chat">
-							<div id="speaking">
-								<div id="speech">
-									<p><span id="visible"></span><span id="invisible"></span></p>
+							<div class="speaking">
+								<div class="speech">
+									<p>
+										<span class="visible"></span><span class="invisible"></span>
+									</p>
 								</div>
 								<button class="d-none button" id="reply">reply</button>
 							</div>
-							<div class="d-none" id="waiting"></div>
+							<div class="d-none waiting"></div>
+						</div>
+						<div class="d-none" id="page-win">
+							<div class="win-screen">
+								<div class="speaking">
+									<div class="speech">
+										<p>
+											<span class="visible"></span
+											><span class="invisible"
+												>that's cool! you know it's been interesting getting to
+												know you. i would like to meet you again, we could watch
+												anime at my place if you're interested. do you watch
+												anime in any capacity?</span
+											>
+										</p>
+									</div>
+									<button class="d-none button win" id="reply1">reply</button>
+								</div>
+							</div>
+							<div class="win-screen d-none">
+								<div class="waiting">
+									<div class="response2">
+										<div class="phrase">
+											<div class="icon">
+												<img src="images/heart1.png" />
+											</div>
+											<div class="text">
+												<p>yes! my favourite is:</p>
+											</div>
+										</div>
+										<input
+											type="text"
+											class=""
+											placeholder="anime"
+											id="anime" />
+										<button class="button win" id="recommend">reply</button>
+									</div>
+									<div class="response3 win">
+										<div class="icon">
+											<img src="images/heart1.png" />
+										</div>
+										<div class="text">
+											<p>no i don't watch anime</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="win-screen d-none">
+								<div class="speaking">
+									<div class="feedback">
+										<p>
+											<span class="visible"></span
+											><span class="invisible"
+												>i loved talking to you. if you'd like to go on a real
+												date with me, you can share your contact details with
+												me. i will text you!</span
+											>
+										</p>
+										<div class="form invisible">
+											<input type="tel" id="phone" placeholder="phone no." />
+											<input type="text" id="message" placeholder="message" />
+											<button class="button" id="contact">share</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="d-none" id="page-end">
+							<div class="speaking">
+								<div class="speech">
+									<p>:D</p>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>

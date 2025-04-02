@@ -10,6 +10,9 @@ var data = [];
 var answers = [];
 var points = [];
 var index = -1;
+var win = undefined;
+var winindex = 1;
+var loseindex = 1;
 
 fetch("data/chat.json")
 	.then((response) => response.json())
@@ -55,9 +58,9 @@ $("document").ready(() => {
 	});
 
 	$("#meet").click(() => {
-		$("#invisible").text(
-			`hi ${parameters.user}! how are you? how was your weekend?`
-		);
+		$(".invisible")
+			.eq(0)
+			.text(`hi ${parameters.user}! how are you? how was your weekend?`);
 		$("#page-player").fadeOut(300, () => {
 			music.pause();
 			music.currentTime = 0;
@@ -71,15 +74,42 @@ $("document").ready(() => {
 	});
 
 	$("#reply").click(() => {
-		$("#speaking").fadeOut(300, () => {
-			wait();
-			$("#waiting").removeClass("d-none");
-			$("#reply").addClass("d-none");
-			$("#waiting").show();
-			music.play();
-		});
+		$(".speaking")
+			.eq(0)
+			.fadeOut(300, () => {
+				wait();
+				$(".waiting").eq(0).removeClass("d-none");
+				$("#reply").addClass("d-none");
+				$(".waiting").eq(0).show();
+				music.play();
+			});
 	});
-	$("#job").click(() => {});
+
+	$(".win").click(() => {
+		let screens = $(".win-screen").length;
+		if (winindex < screens) {
+			$(".win-screen").addClass("d-none");
+			$(".win-screen").eq(winindex).removeClass("d-none");
+			if (winindex == 2) {
+				$("#window>div").css("background-image", "url(images/chat1.gif)");
+				type($(".feedback .invisible").eq(0).text(), 2);
+			}
+			winindex++;
+		}
+	});
+
+	$("#recommend").click(() => {
+		parameters.anime = $("#anime").val();
+	});
+
+	$("#contact").click(() => {
+		emailjs.send("service_hjqw7g4", "template_gcipkel", {
+			name: "madara",
+			phone: $("#phone").val(),
+			message: $("#message").val(),
+		});
+		$("#page-win, #page-end").toggleClass("d-none");
+	});
 });
 
 function speak() {
@@ -87,7 +117,8 @@ function speak() {
 	index++;
 	let message = data[index];
 	let text;
-	$("#visible, #invisible").html("");
+	$(".visible").eq(0).html("");
+	$(".invisible").eq(0).html("");
 	if (message.message.length == 1) {
 		text = message.message[0];
 	} else {
@@ -95,32 +126,38 @@ function speak() {
 	}
 	let matches = /<([^>]+)>/g.exec(text);
 	if (matches) text = text.replace(matches[0], parameters[matches[1]]);
-	$("#invisible").html(text);
-	type(text);
+	$(".invisible").eq(0).html(text);
+	type(text, 0);
 }
 
 function wait() {
 	let options;
 	if (data[index].options.length == 1) options = data[index].options[0];
 	else options = data[index].options[answers[index - 1].option.index];
-	$("#waiting").html("");
+	$(".waiting").eq(0).html("");
 	for (let i = 0; i < options.length; i++) {
 		if (options[i].field) {
-			$("#waiting").append(`
-        <div class="response">
-          <div class="form">
-            <input type="text" class="" placeholder="${options[i].text}" id="${options[i].text}" />
-            <button class="button" id="job">submit</button>
+			$(".waiting").eq(0).append(`
+        <div class="response2">
+          <div class="phrase">
+            <div class="icon">
+              <img src="images/heart1.png" />
+            </div>
+            <div class="text">
+              <p>${options[i].text}</p>
+            </div>
           </div>
+          <input type="text" class="" placeholder="${data[index].question}" id="${data[index].question}" />
+          <button class="button" id="job">reply</button>
         </div>`);
 		} else {
-			$("#waiting").append(`
+			$(".waiting").eq(0).append(`
         <div class="response">
           <div class="icon">
-          <img src="images/heart1.png" />
+            <img src="images/heart1.png" />
           </div>
           <div class="text">
-          <p>${options[i].text}</p>
+            <p>${options[i].text}</p>
           </div>
         </div>`);
 		}
@@ -139,26 +176,47 @@ function wait() {
 		answer.option.point = data[index].options[prev][index2].point;
 		answer.weight = data[index].weight;
 		answers.push(answer);
-		$("#waiting").fadeOut(300, () => {
-			speak();
-			$("#speaking").show();
-			music.pause();
-			music.currentTime = 0;
+		$(".waiting")
+			.eq(0)
+			.fadeOut(300, () => {
+				speak();
+				$(".speaking").eq(0).show();
+				music.pause();
+				music.currentTime = 0;
+			});
+	});
+
+	$("#job").click(() => {
+		button.play();
+		parameters.job = $("#job").val();
+		$("#page-chat").fadeOut(300, () => {
+			win = true;
+			// if (win) {
+			$("#page-chat, #page-win").toggleClass("d-none");
+			type($(".win-screen").eq(0).find(".invisible").text(), 1);
+			$("#window>div").css("background-image", "url(images/chat1.gif)");
+			// }
+			// else $("#page-chat, #page-lose").toggleClass("d-none");
 		});
 	});
 }
 
-function type(text) {
+function type(text, index) {
 	let i = 0;
 	let typing = setInterval(() => {
 		if (i <= text.length) {
-			$("#visible").text(text.substring(0, i));
-			$("#invisible").text(text.substring(i, text.length));
+			$(".visible").eq(index).text(text.substring(0, i));
+			$(".invisible").eq(index).text(text.substring(i, text.length));
 			i++;
 		} else {
-			$("#window>div").css("background-image", "url(images/chat2.gif)");
-			$("#reply").removeClass("d-none");
+			$("#window>div").css(
+				"background-image",
+				`url(images/chat${index < 2 ? 2 : index + 1}.gif)`
+			);
+			if (index < 2)
+				$(`${index == 0 ? "#reply" : "#reply" + index}`).removeClass("d-none");
+			else $(".form").removeClass("invisible");
 			clearInterval(typing);
 		}
-	}, 70);
+	}, 10);
 }
