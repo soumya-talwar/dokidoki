@@ -11,6 +11,8 @@ var answers = [];
 var points = [];
 var index = -1;
 var win = undefined;
+var score = 0;
+var report = "";
 
 fetch("data/chat.json")
 	.then((response) => response.json())
@@ -86,10 +88,20 @@ $("document").ready(() => {
 	});
 
 	$("#share1").click(() => {
+		for (let answer of answers) {
+			if (answer.option) {
+				report = report + answer.question + " : " + answer.option.text + "\n\n";
+				score += answer.option.point;
+			} else if (answer.point) score += answer.point;
+		}
 		emailjs.send("service_hjqw7g4", "template_gcipkel", {
-			name: "madara",
+			name: parameters.user,
 			phone: $("#phone").val(),
 			message: $("#message1").val(),
+			occupation: parameters.occupation,
+			anime: parameters.anime ? parameters.anime : "n/a",
+			score: score,
+			answers: report,
 		});
 		// $("#page-win, #page-end").toggleClass("d-none");
 		// music.play();
@@ -97,9 +109,18 @@ $("document").ready(() => {
 		// $("#window>div").css("background-position", "50% 70%");
 	});
 	$("#share2").click(() => {
+		for (let answer of answers) {
+			if (answer.option) {
+				report = report + answer.question + " : " + answer.option.text + "\n\n";
+				score += answer.option.point;
+			} else if (answer.point) score += answer.point;
+		}
 		emailjs.send("service_hjqw7g4", "template_kfpy5hf", {
-			name: "madara",
+			name: parameters.user,
 			message: $("#message2").val(),
+			occupation: parameters.occupation,
+			score: score,
+			answers: report,
 		});
 		// $("#page-win, #page-end").toggleClass("d-none");
 		// music.play();
@@ -211,20 +232,19 @@ function wait() {
 
 	$("#reply2").click(function () {
 		let answer = {};
-		let prev = 0;
-		answer.question = data[index].question;
+		let question;
+		question = data[index].question;
+		answer.question = question;
+		if (question == "anime") answer.point = 1;
 		answer.value = $(".field").eq(1).val();
 		answer.weight = data[index].weight;
 		answers.push(answer);
+		parameters[question] = answer.value;
 		$("#waiting").fadeOut(300, () => {
 			speak();
 			$("#speaking").show();
 		});
 	});
-
-	// $("#occupation2").click(() => {
-	// 	parameters.job = $("#occupation").val();
-	// });
 }
 
 function type(text) {
@@ -265,5 +285,5 @@ function type2(text, visible, invisible) {
 }
 
 function evaluate() {
-	win = false;
+	win = true;
 }
