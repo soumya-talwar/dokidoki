@@ -113,6 +113,19 @@ $("document").ready(() => {
 		$("#window>div").css("background-size", "135%");
 		$("#window>div").css("background-position", "50% 70%");
 	});
+
+	$("#feedback").click(() => {
+		// emailjs.send("service_hjqw7g4", "template_gcipkel", {
+		// 	name: "madara",
+		// 	phone: $("#phone").val(),
+		// 	message: $("#message").val(),
+		// });
+		console.log("YOU LOST");
+		$("#page-lose, #page-end").toggleClass("d-none");
+		music.play();
+		$("#window>div").css("background-size", "135%");
+		$("#window>div").css("background-position", "50% 70%");
+	});
 });
 
 function speak() {
@@ -193,12 +206,15 @@ function wait() {
 		parameters.job = $("#job").val();
 		$("#page-chat").fadeOut(300, () => {
 			win = true;
-			// if (win) {
-			$("#page-chat, #page-win").toggleClass("d-none");
-			type($(".win-screen").eq(0).find(".invisible").text(), 1);
-			$("#window>div").css("background-image", "url(images/chat1.gif)");
-			// }
-			// else $("#page-chat, #page-lose").toggleClass("d-none");
+			if (win) {
+				$("#page-chat, #page-win").toggleClass("d-none");
+				type($(".win-screen").eq(0).find(".invisible").text(), 1);
+				$("#window>div").css("background-image", "url(images/chat1.gif)");
+			} else {
+				$("#page-chat, #page-lose").toggleClass("d-none");
+				type($(".lose-screen").eq(0).find(".invisible").text(), 3);
+				$("#window>div").css("background-image", "url(images/chat1.gif)");
+			}
 		});
 	});
 }
@@ -219,8 +235,8 @@ function type(text, index) {
 			);
 			if (index < 2)
 				$(`${index == 0 ? "#reply" : "#reply" + index}`).removeClass("d-none");
-			else $(".form").removeClass("invisible");
+			else $(".form").removeClass("hidden");
 			clearInterval(typing);
 		}
-	}, 70);
+	}, 10);
 }
