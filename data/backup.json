@@ -287,6 +287,27 @@
 				]
 			],
 			"weight": 1
+		},
+		{
+			"question": "anime",
+			"condition": "win",
+			"message": [
+				"that's cool! you know it's been interesting getting to know you. i would like to meet you again, we could watch anime at my place if you're interested. do you watch anime in any capacity?"
+			],
+			"options": [
+				[
+					{
+						"text": "yes! my favourite is:",
+						"field": true,
+						"point": 1
+					},
+					{
+						"text": "no i don't watch anime",
+						"point": 0
+					}
+				]
+			],
+			"weight": 1
 		}
 	]
 }

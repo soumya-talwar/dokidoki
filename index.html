@@ -74,7 +74,11 @@
 							<button class="button" id="info">info</button>
 						</div>
 						<div class="d-none" id="page-name">
-							<input type="text" placeholder="your name" id="user" />
+							<input
+								class="field"
+								type="text"
+								placeholder="your name"
+								id="user" />
 							<button class="button" id="submit">submit</button>
 						</div>
 						<div class="d-none" id="page-player">
@@ -104,88 +108,37 @@
 							</div>
 						</div>
 						<div class="d-none" id="page-chat">
-							<div class="speaking">
-								<div class="speech">
-									<p>
-										<span class="visible"></span><span class="invisible"></span>
-									</p>
-								</div>
-								<button class="d-none button" id="reply">reply</button>
-							</div>
-							<div class="d-none waiting"></div>
-						</div>
-						<div class="d-none" id="page-win">
-							<div class="win-screen">
-								<div class="speaking">
-									<div class="speech">
+							<div id="speaking">
+								<div id="speech">
+									<div class="blurb">
 										<p>
-											<span class="visible"></span
-											><span class="invisible"
-												>that's cool! you know it's been interesting getting to
-												know you. i would like to meet you again, we could watch
-												anime at my place if you're interested. do you watch
-												anime in any capacity?</span
-											>
+											<span id="visible"></span><span id="invisible"></span>
 										</p>
 									</div>
-									<button class="d-none button win" id="reply1">reply</button>
+									<button class="d-none button" id="reply">reply</button>
 								</div>
-							</div>
-							<div class="win-screen d-none">
-								<div class="waiting">
-									<div class="response2">
-										<div class="phrase">
-											<div class="icon">
-												<img src="images/heart1.png" />
-											</div>
-											<div class="text">
-												<p>yes! my favourite is:</p>
-											</div>
-										</div>
-										<input
-											type="text"
-											class=""
-											placeholder="anime"
-											id="anime" />
-										<button class="button win" id="recommend">reply</button>
-									</div>
-									<div class="response3 win">
-										<div class="icon">
-											<img src="images/heart1.png" />
-										</div>
-										<div class="text">
-											<p>no i don't watch anime</p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="win-screen d-none">
-								<div class="speaking">
-									<div class="feedback">
+								<div class="form d-none" id="details">
+									<div class="blurb">
 										<p>
-											<span class="visible"></span
-											><span class="invisible"
+											<span id="visible1"></span
+											><span id="invisible1"
 												>i loved talking to you. if you'd like to go on a real
 												date with me, you can share your contact details with
 												me. i will text you!</span
 											>
 										</p>
-										<div class="form hidden">
+										<div class="inputs hidden">
 											<input type="tel" id="phone" placeholder="phone no." />
-											<input type="text" id="message" placeholder="message" />
-											<button class="button" id="contact">share</button>
+											<input type="text" id="message1" placeholder="message" />
+											<button class="button" id="share1">share</button>
 										</div>
 									</div>
 								</div>
-							</div>
-						</div>
-						<div class="d-none" id="page-lose">
-							<div class="lose-screen">
-								<div class="speaking">
-									<div class="feedback">
+								<div class="form d-none" id="feedback">
+									<div class="blurb">
 										<p>
-											<span class="visible"></span
-											><span class="invisible"
+											<span id="visible2"></span
+											><span id="invisible2"
 												>that's cool! you know it's been interesting getting to
 												know you. but i don't think we'd be a good fit for each
 												other. i hope you find someone who's good for you. if
@@ -193,20 +146,14 @@
 												it here:</span
 											>
 										</p>
-										<div class="form hidden">
+										<div class="inputs hidden">
 											<input type="text" id="message2" placeholder="feedback" />
-											<button class="button" id="feedback">share</button>
+											<button class="button" id="share2">share</button>
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-						<div class="d-none" id="page-end">
-							<div class="speaking">
-								<div class="speech">
-									<p>:D</p>
-								</div>
-							</div>
+							<div class="d-none" id="waiting"></div>
 						</div>
 					</div>
 				</div>

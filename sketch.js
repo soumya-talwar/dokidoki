@@ -11,8 +11,6 @@ var answers = [];
 var points = [];
 var index = -1;
 var win = undefined;
-var winindex = 1;
-var loseindex = 1;
 
 fetch("data/chat.json")
 	.then((response) => response.json())
@@ -58,9 +56,9 @@ $("document").ready(() => {
 	});
 
 	$("#meet").click(() => {
-		$(".invisible")
-			.eq(0)
-			.text(`hi ${parameters.user}! how are you? how was your weekend?`);
+		$("#invisible").text(
+			`hi ${parameters.user}! how are you? how was your weekend?`
+		);
 		$("#page-player").fadeOut(300, () => {
 			music.pause();
 			music.currentTime = 0;
@@ -74,86 +72,99 @@ $("document").ready(() => {
 	});
 
 	$("#reply").click(() => {
-		$(".speaking")
-			.eq(0)
-			.fadeOut(300, () => {
-				wait();
-				$(".waiting").eq(0).removeClass("d-none");
-				$("#reply").addClass("d-none");
-				$(".waiting").eq(0).show();
-				music.play();
-			});
-	});
-
-	$(".win").click(() => {
-		let screens = $(".win-screen").length;
-		if (winindex < screens) {
-			$(".win-screen").addClass("d-none");
-			$(".win-screen").eq(winindex).removeClass("d-none");
-			if (winindex == 2) {
-				$("#window>div").css("background-image", "url(images/chat1.gif)");
-				type($(".feedback .invisible").eq(0).text(), 2);
-			} else music.play();
-			winindex++;
-		}
+		$("#speaking").fadeOut(300, () => {
+			wait();
+			$("#waiting").removeClass("d-none");
+			$("#reply").addClass("d-none");
+			$("#waiting").show();
+			music.play();
+		});
 	});
 
 	$("#recommend").click(() => {
 		parameters.anime = $("#anime").val();
 	});
 
-	$("#contact").click(() => {
+	$("#share1").click(() => {
 		emailjs.send("service_hjqw7g4", "template_gcipkel", {
 			name: "madara",
 			phone: $("#phone").val(),
-			message: $("#message").val(),
+			message: $("#message1").val(),
 		});
-		$("#page-win, #page-end").toggleClass("d-none");
-		music.play();
-		$("#window>div").css("background-size", "135%");
-		$("#window>div").css("background-position", "50% 70%");
+		// $("#page-win, #page-end").toggleClass("d-none");
+		// music.play();
+		// $("#window>div").css("background-size", "135%");
+		// $("#window>div").css("background-position", "50% 70%");
 	});
-
-	$("#feedback").click(() => {
-		// emailjs.send("service_hjqw7g4", "template_gcipkel", {
-		// 	name: "madara",
-		// 	phone: $("#phone").val(),
-		// 	message: $("#message").val(),
-		// });
-		console.log("YOU LOST");
-		$("#page-lose, #page-end").toggleClass("d-none");
-		music.play();
-		$("#window>div").css("background-size", "135%");
-		$("#window>div").css("background-position", "50% 70%");
+	$("#share2").click(() => {
+		emailjs.send("service_hjqw7g4", "template_kfpy5hf", {
+			name: "madara",
+			message: $("#message2").val(),
+		});
+		// $("#page-win, #page-end").toggleClass("d-none");
+		// music.play();
+		// $("#window>div").css("background-size", "135%");
+		// $("#window>div").css("background-position", "50% 70%");
 	});
 });
 
 function speak() {
 	$("#window>div").css("background-image", "url(images/chat1.gif)");
 	index++;
-	let message = data[index];
-	let text;
-	$(".visible").eq(0).html("");
-	$(".invisible").eq(0).html("");
-	if (message.message.length == 1) {
-		text = message.message[0];
+	if (index < data.length) {
+		let message = data[index];
+		if (!message.condition) {
+			let text;
+			$("#visible, #invisible").html("");
+			if (message.message.length == 1) {
+				text = message.message[0];
+			} else {
+				text = message.message[answers[index - 1].option.index];
+			}
+			let matches = /<([^>]+)>/g.exec(text);
+			if (matches) text = text.replace(matches[0], parameters[matches[1]]);
+			$("#invisible").html(text);
+			type(text);
+		} else {
+			evaluate();
+			if (message.condition == "win" && win) {
+				let text;
+				$("#visible, #invisible").html("");
+				if (message.message.length == 1) {
+					text = message.message[0];
+				} else {
+					text = message.message[answers[index - 1].option.index];
+				}
+				let matches = /<([^>]+)>/g.exec(text);
+				if (matches) text = text.replace(matches[0], parameters[matches[1]]);
+				$("#invisible").html(text);
+				type(text);
+			} else {
+				$("#speech, #feedback").toggleClass("d-none");
+				$("#window>div").css("background-image", "url(images/chat5.gif)");
+				type2($("#invisible2").text(), "visible2", "invisible2");
+			}
+		}
 	} else {
-		text = message.message[answers[index - 1].option.index];
+		if (win) {
+			$("#speech, #details").toggleClass("d-none");
+			type2($("#invisible1").text(), "visible1", "invisible1");
+		} else {
+			$("#speech, #feedback").toggleClass("d-none");
+			$("#window>div").css("background-image", "url(images/chat5.gif)");
+			type2($("#invisible2").text(), "visible2", "invisible2");
+		}
 	}
-	let matches = /<([^>]+)>/g.exec(text);
-	if (matches) text = text.replace(matches[0], parameters[matches[1]]);
-	$(".invisible").eq(0).html(text);
-	type(text, 0);
 }
 
 function wait() {
 	let options;
 	if (data[index].options.length == 1) options = data[index].options[0];
 	else options = data[index].options[answers[index - 1].option.index];
-	$(".waiting").eq(0).html("");
+	$("#waiting").html("");
 	for (let i = 0; i < options.length; i++) {
 		if (options[i].field) {
-			$(".waiting").eq(0).append(`
+			$("#waiting").append(`
         <div class="response2">
           <div class="phrase">
             <div class="icon">
@@ -163,11 +174,11 @@ function wait() {
               <p>${options[i].text}</p>
             </div>
           </div>
-          <input type="text" class="" placeholder="${data[index].question}" id="${data[index].question}" />
-          <button class="button" id="job">reply</button>
+          <input type="text" class="field" placeholder="${data[index].question}" id="${data[index].question}" />
+          <button class="button" id="reply2">reply</button>
         </div>`);
 		} else {
-			$(".waiting").eq(0).append(`
+			$("#waiting").append(`
         <div class="response">
           <div class="icon">
             <img src="images/heart1.png" />
@@ -192,51 +203,67 @@ function wait() {
 		answer.option.point = data[index].options[prev][index2].point;
 		answer.weight = data[index].weight;
 		answers.push(answer);
-		$(".waiting")
-			.eq(0)
-			.fadeOut(300, () => {
-				speak();
-				$(".speaking").eq(0).show();
-			});
-	});
-
-	$("#job").click(() => {
-		button.play();
-		music.play();
-		parameters.job = $("#job").val();
-		$("#page-chat").fadeOut(300, () => {
-			win = true;
-			if (win) {
-				$("#page-chat, #page-win").toggleClass("d-none");
-				type($(".win-screen").eq(0).find(".invisible").text(), 1);
-				$("#window>div").css("background-image", "url(images/chat1.gif)");
-			} else {
-				$("#page-chat, #page-lose").toggleClass("d-none");
-				type($(".lose-screen").eq(0).find(".invisible").text(), 3);
-				$("#window>div").css("background-image", "url(images/chat1.gif)");
-			}
+		$("#waiting").fadeOut(300, () => {
+			speak();
+			$("#speaking").show();
 		});
 	});
+
+	$("#reply2").click(function () {
+		let answer = {};
+		let prev = 0;
+		answer.question = data[index].question;
+		answer.value = $(".field").eq(1).val();
+		answer.weight = data[index].weight;
+		answers.push(answer);
+		$("#waiting").fadeOut(300, () => {
+			speak();
+			$("#speaking").show();
+		});
+	});
+
+	// $("#occupation2").click(() => {
+	// 	parameters.job = $("#occupation").val();
+	// });
 }
 
-function type(text, index) {
+function type(text) {
 	music.pause();
 	music.currentTime = 0;
 	let i = 0;
 	let typing = setInterval(() => {
 		if (i <= text.length) {
-			$(".visible").eq(index).text(text.substring(0, i));
-			$(".invisible").eq(index).text(text.substring(i, text.length));
+			$("#visible").text(text.substring(0, i));
+			$("#invisible").text(text.substring(i, text.length));
+			i++;
+		} else {
+			$("#window>div").css("background-image", "url(images/chat2.gif)");
+			$("#reply").removeClass("d-none");
+			clearInterval(typing);
+		}
+	}, 70);
+}
+
+function type2(text, visible, invisible) {
+	music.pause();
+	music.currentTime = 0;
+	let i = 0;
+	let typing = setInterval(() => {
+		if (i <= text.length) {
+			$(`#${visible}`).text(text.substring(0, i));
+			$(`#${invisible}`).text(text.substring(i, text.length));
 			i++;
 		} else {
 			$("#window>div").css(
 				"background-image",
-				`url(images/chat${index < 2 ? 2 : index + 1}.gif)`
+				`url(images/chat${win ? 3 : 4}.gif)`
 			);
-			if (index < 2)
-				$(`${index == 0 ? "#reply" : "#reply" + index}`).removeClass("d-none");
-			else $(".form").removeClass("hidden");
+			$(".inputs").removeClass("hidden");
 			clearInterval(typing);
 		}
-	}, 10);
+	}, 70);
+}
+
+function evaluate() {
+	win = false;
 }
