@@ -88,11 +88,13 @@ $("document").ready(() => {
 	});
 
 	$("#share1").click(() => {
+		report = "";
+		score = 0;
 		for (let answer of answers) {
 			if (answer.option) {
 				report = report + answer.question + " : " + answer.option.text + "\n\n";
-				score += answer.option.point;
-			} else if (answer.point) score += answer.point;
+				score += answer.option.point * answer.weight;
+			} else if (answer.point) score += answer.point * answer.weight;
 		}
 		emailjs.send("service_hjqw7g4", "template_gcipkel", {
 			name: parameters.user,
@@ -103,18 +105,12 @@ $("document").ready(() => {
 			score: score,
 			answers: report,
 		});
-		// $("#page-win, #page-end").toggleClass("d-none");
-		// music.play();
-		// $("#window>div").css("background-size", "135%");
-		// $("#window>div").css("background-position", "50% 70%");
+		$("#page-chat, #page-end").toggleClass("d-none");
+		music.play();
+		$("#window>div").css("background-size", "135%");
+		$("#window>div").css("background-position", "50% 90%");
 	});
 	$("#share2").click(() => {
-		for (let answer of answers) {
-			if (answer.option) {
-				report = report + answer.question + " : " + answer.option.text + "\n\n";
-				score += answer.option.point;
-			} else if (answer.point) score += answer.point;
-		}
 		emailjs.send("service_hjqw7g4", "template_kfpy5hf", {
 			name: parameters.user,
 			message: $("#message2").val(),
@@ -122,10 +118,10 @@ $("document").ready(() => {
 			score: score,
 			answers: report,
 		});
-		// $("#page-win, #page-end").toggleClass("d-none");
-		// music.play();
-		// $("#window>div").css("background-size", "135%");
-		// $("#window>div").css("background-position", "50% 70%");
+		$("#page-chat, #page-end").toggleClass("d-none");
+		music.play();
+		$("#window>div").css("background-size", "135%");
+		$("#window>div").css("background-position", "50% 90%");
 	});
 });
 
@@ -261,7 +257,7 @@ function type(text) {
 			$("#reply").removeClass("d-none");
 			clearInterval(typing);
 		}
-	}, 70);
+	}, 1);
 }
 
 function type2(text, visible, invisible) {
@@ -281,9 +277,13 @@ function type2(text, visible, invisible) {
 			$(".inputs").removeClass("hidden");
 			clearInterval(typing);
 		}
-	}, 70);
+	}, 1);
 }
 
 function evaluate() {
-	win = true;
+	for (let answer of answers) {
+		if (answer.option) score += answer.option.point * answer.weight;
+	}
+	if (score > 0) win = true;
+	else win = false;
 }

@@ -32,7 +32,7 @@
 				[
 					{
 						"text": "neither, i would think i am an ambivert.",
-						"point": 0
+						"point": 1
 					},
 					{
 						"text": "i would say i am an introvert.",
@@ -44,7 +44,7 @@
 					}
 				]
 			],
-			"weight": 1
+			"weight": 3
 		},
 		{
 			"question": "drinking",
@@ -71,7 +71,7 @@
 					}
 				]
 			],
-			"weight": 1
+			"weight": 4
 		},
 		{
 			"question": "socialmedia",
@@ -113,7 +113,7 @@
 					}
 				]
 			],
-			"weight": 1
+			"weight": 2
 		},
 		{
 			"question": "lifestyle",
@@ -143,7 +143,7 @@
 					}
 				]
 			],
-			"weight": 1
+			"weight": 5
 		},
 		{
 			"question": "relationship",
@@ -166,7 +166,7 @@
 					}
 				]
 			],
-			"weight": 1
+			"weight": 5
 		},
 		{
 			"question": "marriage",
@@ -189,7 +189,7 @@
 					}
 				]
 			],
-			"weight": 1
+			"weight": 3
 		},
 		{
 			"question": "kids",
@@ -216,7 +216,7 @@
 					}
 				]
 			],
-			"weight": 1
+			"weight": 4
 		},
 		{
 			"question": "cooking",
@@ -239,7 +239,7 @@
 					}
 				]
 			],
-			"weight": 1
+			"weight": 2
 		},
 		{
 			"question": "house",
@@ -270,7 +270,7 @@
 					}
 				]
 			],
-			"weight": 1
+			"weight": 3
 		},
 		{
 			"question": "occupation",

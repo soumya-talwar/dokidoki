@@ -372,7 +372,21 @@
 #page-end {
   height: 100%;
   width: 100%;
-  padding: 1.5rem 1rem 0 1rem;
+  padding: 1.5rem 2rem 0 2rem;
+}
+
+#response3 {
+  width: 100%;
+  padding: 1rem 1rem;
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+#response3 p {
+  font-size: 1rem;
+  letter-spacing: 1px;
+  margin: 0;
 }
 
 @media only screen and (max-width: 600px) {
