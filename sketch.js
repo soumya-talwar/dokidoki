@@ -257,7 +257,7 @@ function type(text) {
 			$("#reply").removeClass("d-none");
 			clearInterval(typing);
 		}
-	}, 1);
+	}, 50);
 }
 
 function type2(text, visible, invisible) {
@@ -277,7 +277,7 @@ function type2(text, visible, invisible) {
 			$(".inputs").removeClass("hidden");
 			clearInterval(typing);
 		}
-	}, 1);
+	}, 50);
 }
 
 function evaluate() {
