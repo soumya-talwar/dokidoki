@@ -29,12 +29,7 @@ $("document").ready(() => {
 	});
 	$(".button").click(() => button.play());
 	$("#info").click(() => {
-		setTimeout(() => {
-			music.pause();
-			$("#info-dialog").removeClass("d-none");
-			info.play();
-			info.addEventListener("ended", () => music.play());
-		}, 100);
+		setTimeout(() => $("#info-dialog").removeClass("d-none"), 100);
 	});
 	$("#back").click(() => {
 		setTimeout(() => {
