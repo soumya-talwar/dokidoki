@@ -399,7 +399,7 @@
 
 	#permission > div {
 		background-color: white;
-		width: 40%;
+		width: 80%;
 		height: 20%;
 		border-radius: 5px;
 		border: 2px solid black;
@@ -411,9 +411,8 @@
 	}
 
 	#info-dialog {
-		width: 80%;
+		width: 100%;
 	}
 	#info-dialog > div {
 		width: 80%;
 	}
-} /*# sourceMappingURL=style.css.map */
