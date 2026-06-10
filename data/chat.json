@@ -1,14 +1,14 @@
 {
 	"messages": [
 		{
-			"question": "",
+			"question": "status",
 			"message": [
-				"hi <user>! it's nice to finally meet you. so, what's been keeping you busy these days?"
+				"hi <user>! it's nice to meet you. let’s pretend we’re not inside a browser window and that this is a real date. what’s been keeping you busy these days?"
 			],
 			"options": [
 				[
 					{
-						"text": "",
+						"text": "status",
 						"field": true,
 						"point": 0
 					}
@@ -63,7 +63,7 @@
 		{
 			"question": "diet",
 			"message": [
-				"gotcha. have you decided what you're getting? are you non-vegetarian?"
+				"gotcha. have you decided what you're getting? i'm realizing this game doesn't actually have a menu, but are you non-vegetarian?"
 			],
 			"options": [
 				[
@@ -195,7 +195,7 @@
 		{
 			"question": "occupation",
 			"message": [
-				"and what do you do for work when you're not answering strange questions in dating games?"
+				"and what do you do for work when you're not responding to my hard-coded questions?"
 			],
 			"options": [
 				[
@@ -209,14 +209,14 @@
 			"weight": 1
 		},
 		{
-			"question": "occupation",
+			"question": "hobbies",
 			"message": [
 				"outside of work, what's something you're excited about these days?"
 			],
 			"options": [
 				[
 					{
-						"text": "occupation",
+						"text": "hobbies",
 						"field": true,
 						"point": 0
 					}
