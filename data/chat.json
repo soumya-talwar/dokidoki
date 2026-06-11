@@ -63,7 +63,7 @@
 		{
 			"question": "diet",
 			"message": [
-				"gotcha. have you decided what you're getting? i'm realizing this game doesn't actually have a menu, but are you non-vegetarian?"
+				"gotcha. have you decided what you're getting to eat? i'm realizing this game doesn't actually have a menu, but are you non-vegetarian?"
 			],
 			"options": [
 				[
@@ -227,7 +227,9 @@
 		{
 			"question": "anime",
 			"condition": "win",
-			"message": ["alright, one last compatibility test: do you watch anime?"],
+			"message": [
+				"alright, one last compatibility test: do you watch anime? which one have you liked most?"
+			],
 			"options": [
 				[
 					{
